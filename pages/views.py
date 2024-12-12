@@ -42,7 +42,6 @@ def clear_chat(request):
 
 def index(request):
     conversation = request.session.get('conversation', [])
-    print(request)
     if request.method == 'POST':
         user_query = request.POST.get('user_message')
         print("00000000000000000")
@@ -59,7 +58,7 @@ def index(request):
                 prompt = f"""
                 User: {user_query}
                 the user attache a file 
-                (response as HTML Format in a div without entire html structure,dont put the html inside ```html and ``` ) if the text in arabic add the attribut dir="rtl" to the div
+                (response as HTML Format in a div without entire html structure) if the text in arabic add the attribut dir="rtl" to the div
                 BOT: 
                 """
                 bot_response = query_gpt(prompt,filePath)
